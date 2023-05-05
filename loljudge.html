@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html data-theme="light">
+  <head>
+    <meta charset="UTF-8">
+    <title>나의 웹사이트</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+
+      h1 {
+        color: #333;
+        font-size: 2.5em;
+      }
+
+      p {
+        color: #666;
+        font-size: 1.2em;
+      }
+
+      html[data-theme="dark"] h1,
+      html[data-theme="dark"] p {
+        color: white}
+      html[data-theme="dark"] body {
+        background-color: black ;
+      }  
+
+      html[data-theme="light"] {
+        background-color: #f0f0f0;
+      }
+
+      .theme-switch-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.theme-switch-wrapper input[type="checkbox"] {
+  display: none;
+}
+
+.theme-switch-wrapper .switch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.2s;
+}
+
+.theme-switch-wrapper .switch:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.theme-switch-wrapper input[type="checkbox"]:checked + .switch {
+  background-color: #2196F3;
+}
+
+.theme-switch-wrapper input[type="checkbox"]:checked + .switch:before {
+  transform: translateX(26px) rotate(225deg);
+}
+
+      .theme-switch-wrapper em {
+        margin-left: 1rem;
+        font-size: 0.8rem;
+      }
+
+      .theme-switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      .theme-switch input[type="checkbox"] {
+        display: none;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+      }
+
+      input:checked + .slider {
+        background-color: #2196F3;
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+
+      .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.container h1 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 7rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.container p {
+  font-size: 2rem;
+  margin-top: 2rem;
+  color: #333;
+}
+
+      .search-bar {
+        display: flex;
+        justify-content: center;
+      }
+
+      .search-bar input[type="text"] {
+        width: 300px;
+        height: 36px;
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-right: none;
+        border-radius: 4px 0 0 4px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .search-bar button[type="submit"] {
+        width: 48px;
+        height: 36px;
+        padding: 0;
+        border: 1px solid #ccc;
+        border-left: none;
+        border-radius: 0 4px 4px 0;
+        background-color: #fff;
+        font-size: 16px;
+        color: #777;
+      }
+
+      .menu {
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+      }
+
+      .menu ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .menu li {
+        margin-right: 24px;
+      }
+
+      .menu li:last-child {
+        margin-right: 0;
+      }
+
+      .menu a {
+        display: block;
+        padding: 8px 12px;
+        color: #777;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      .menu a:hover {
+        background-color: #f0f0f0;
+      }
+
+      .toggle input[type="checkbox"] {
+  display: none;
+}
+
+.toggle .slider {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.2s;
+}
+
+.toggle .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.toggle input[type="checkbox"]:checked + .slider {
+  background-color: #2196F3;
+}
+
+.toggle input[type="checkbox"]:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+
+    </style>
+  </head>
+  <body>
+
+    <nav class="menu">
+      <ul>
+        <li><a href="#">챔피언분석</a></li>
+        <li><a href="#">랭킹</a></li>
+        <li><a href="#">커뮤니티</a></li>
+        <li><a href="#">매치 분석</a></li>
+        <li><a href="#">통계</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h1>LOLJudge.kr</h1>
+      <p>롤 재판소에 오신 걸 환영합니다.</p>
+      <div class="search-bar">
+        <input type="text" placeholder="소환사명, 챔피언...">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+
+    <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+      <em>Toggle</em>
+    </div>
+
+    <script>
+      const searchInput = document.querySelector('.search-bar input[type="text"]');
+      const searchButton = document.querySelector('.search-bar button[type="submit"]');
+
+      searchButton.addEventListener('click', () => {
+        const searchTerm = searchInput.value.trim();
+        if (searchTerm !== '') {
+          window.location.href = `https://www.op.gg/summoner/userName=${searchTerm}`;
+        }
+      });
+
+      const menuLinks = document.querySelectorAll('.menu a');
+
+      menuLinks.forEach((link) => {
+        if (link.href === window.location.href) {
+          link.classList.add('active');
+        }
+      });
+
+      const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+      function switchTheme(e) {
+        document.documentElement.setAttribute('data-theme', e.target.checked ? 'dark' : 'light');
+      }
+
+      toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+  </body>
+</html>
